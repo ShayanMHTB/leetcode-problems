@@ -22,11 +22,12 @@ class ListNode:
 
 
 def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-    return 0
+    return self, l1, l2
 
 
 def main():
-    addTwoNumbers()
+    l1 = ListNode(val=2, next=ListNode(val=4, next=ListNode(val=3, next=None)))
+    l1 = ListNode(val=5, next=ListNode(val=6, next=ListNode(val=4, next=None)))
     return 0
 
 

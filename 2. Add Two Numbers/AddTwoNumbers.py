@@ -22,12 +22,29 @@ class ListNode:
 
 
 def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-    return self, l1, l2
+    def valuefy(l: Optional[ListNode]):
+        if (l.next != None):
+            return str(l.val) + valuefy(l.next)
+        else:
+            return str(l.val)
+
+    def nodefy(value):
+        if (len(value) == 1):
+            return ListNode(val=int(value), next=None)
+        else:
+            return ListNode(val=int(value[0]), next=nodefy(value[1:]))
+
+    sum = str(int(valuefy(l1)[::-1]) + int(valuefy(l2)[::-1]))[::-1]
+
+    sumNode = nodefy(sum)
+    return sumNode
 
 
 def main():
-    l1 = ListNode(val=2, next=ListNode(val=4, next=ListNode(val=3, next=None)))
-    l1 = ListNode(val=5, next=ListNode(val=6, next=ListNode(val=4, next=None)))
+    l1 = ListNode(val=2, next=ListNode(val=4, next=ListNode(val=9, next=None)))
+    l2 = ListNode(val=5, next=ListNode(
+        val=6, next=ListNode(val=4, next=ListNode(val=9, next=None))))
+    result = addTwoNumbers(ListNode, l1, l2)
     return 0
 
 
